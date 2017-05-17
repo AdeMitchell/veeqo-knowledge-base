@@ -22,3 +22,19 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+> This is a RoR 5 App
+
+### Features
+
+- Real Time
+- Blog
+
+### Code Example
+
+```ruby
+def method
+  puts "Here it is"
+end
+```
+
