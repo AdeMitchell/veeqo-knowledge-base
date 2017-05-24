@@ -1,8 +1,8 @@
 <h1>Departments</h1>
 
-<% @departments.each do |depatment| %>
-  <p><%= depatment.title %></p>
-  <p><%= depatment.subtitle %></p>
-  <p><%= depatment.body %></p>
-  <%= image_tag depatment.thumb_image %>
+<% @departments.each do |department| %>
+  <p><%= department.title %></p>
+  <p><%= department.subtitle %></p>
+  <p><%= department.body %></p>
+  <%= image_tag department.thumb_image unless department.thumb_image.nil? %>
 <% end %>
