@@ -1,0 +1,8 @@
+<h1>Departments</h1>
+
+<% @departments.each do |depatment| %>
+  <p><%= depatment.title %></p>
+  <p><%= depatment.subtitle %></p>
+  <p><%= depatment.body %></p>
+  <%= image_tag depatment.thumb_image %>
+<% end %>
