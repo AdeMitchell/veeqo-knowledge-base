@@ -42,4 +42,12 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id])
   end
   
+  def destroy
+    @department = Department.find(params[:id])
+    @department.destroy
+    respond_to do |format|
+      format.html { redirect_to departments_url, notice: 'Department was removed.' }
+    end
+  end
+  
 end
