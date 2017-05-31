@@ -8,6 +8,8 @@ class DepartmentsController < ApplicationController
   end
   
   
+  
+  
   def create
     @department = Department.new(params.require(:department).permit(:title, :subtitle,  :body))
 
@@ -34,6 +36,10 @@ class DepartmentsController < ApplicationController
         format.html { render :edit }
       end
     end
+  end
+  
+  def show
+    @department = Department.find(params[:id])
   end
   
 end

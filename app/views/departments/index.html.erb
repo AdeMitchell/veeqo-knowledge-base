@@ -2,11 +2,10 @@
 
 <%= link_to "Create new Department", new_department_path %> 
 
-
 <% @departments.each do |department| %>
-  <p><%= department.title %></p>
+  <p><%= link_to department.title, department_path(department) %></p>
   <p><%= department.subtitle %></p>
   <p><%= department.body %></p>
   <%= image_tag department.thumb_image unless department.thumb_image.nil? %>
-  <%= link_to "Edit", edit_department_path(department.id) %>
+  <%= link_to "Edit", edit_department_path(department) %>
 <% end %>
