@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /articles
   # GET /articles.json
@@ -55,6 +55,16 @@ class ArticlesController < ApplicationController
       format.html { redirect_to articles_url, notice: 'Guide was removed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def toggle_status
+    if @article.draft?
+      @article.published!
+    elsif @article.published?
+      @article.draft!
+    end
+    
+    redirect_to articles_url, notice: 'Post status has been updated.'
   end
 
   private
