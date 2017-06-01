@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  resources :departments
-  get 'pages/home'
-
-  get 'pages/about'
-
-  get 'pages/contact'
+  resources :departments, except: [:show]
+  
+  get 'department/:id', to: 'departments#show', as: 'department_show'
+  
+  get 'about', to: 'pages#about'
+  get 'contact', to: 'pages#contact'
+  
 
   resources :articles
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+
+  root to: 'pages#home'
 end
