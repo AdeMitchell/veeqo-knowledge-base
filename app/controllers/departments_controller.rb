@@ -3,6 +3,10 @@ class DepartmentsController < ApplicationController
     @departments = Department.all
   end
   
+  def angular
+    @angular_department_items = Department.angular
+  end
+  
   def new
     @department = Department.new
   end

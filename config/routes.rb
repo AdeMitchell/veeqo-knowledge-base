@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :departments, except: [:show]
-  
+  get 'angular-items', to: 'departments#angular'
   get 'department/:id', to: 'departments#show', as: 'department_show'
   
   get 'about', to: 'pages#about'
