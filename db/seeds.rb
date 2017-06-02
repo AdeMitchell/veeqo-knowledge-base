@@ -41,3 +41,12 @@ puts "8 departments created!"
     )
 end
 puts "8 departments created!"
+
+
+3.times do |technology|
+  Department.last.technologies.create!(
+      name: "Technology #{technology}"
+    )
+end
+
+puts "3 technologies created"
