@@ -9,13 +9,14 @@ class DepartmentsController < ApplicationController
   
   def new
     @department = Department.new
+    3.times { @department.technologies.build }
   end
   
   
   
   
   def create
-    @department = Department.new(params.require(:department).permit(:title, :subtitle,  :body))
+    @department = Department.new(params.require(:department).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
 
     respond_to do |format|
       if @department.save
