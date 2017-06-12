@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :departments, except: [:show]
   get 'angular-items', to: 'departments#angular'
   get 'department/:id', to: 'departments#show', as: 'department_show'
