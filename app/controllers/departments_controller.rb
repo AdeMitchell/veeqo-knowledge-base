@@ -16,7 +16,7 @@ class DepartmentsController < ApplicationController
   
   
   def create
-    @department = Department.new(params.require(:department).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+    @department = Department.new(department_params)
 
     respond_to do |format|
       if @department.save
@@ -35,7 +35,7 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id])
     respond_to do |format|
       
-      if @department.update(params.require(:department).permit(:title, :subtitle,  :body))
+      if @department.update(department_params)
         format.html { redirect_to departments_path, notice: 'Department was successfully updated.' }
       else
         format.html { render :edit }
@@ -53,6 +53,16 @@ class DepartmentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to departments_url, notice: 'Department was removed.' }
     end
+  end
+  
+  private
+  
+  def department_params
+    params.require(:department).permit(:title,
+                                       :subtitle, 
+                                       :body, 
+                                       technologies_attributes: [:name]
+                                      )
   end
   
 end
