@@ -5,11 +5,14 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    @page_title = "KnowledgeBase - Articles"
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @page_title = "KnowledgeBase - #{@article.title}"
+    @seo_keywords = @article.body
   end
 
   # GET /articles/new
